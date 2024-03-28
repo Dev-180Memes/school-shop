@@ -1,0 +1,66 @@
+.navbar {
+    width: 100%;
+    padding: 20px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    // Styles for a text logo
+    font-size: 20px;
+    font-weight: bold;
+    color: #820cc6;
+    text-decoration: none;
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+}
+
+.search {
+    // width: 220px;
+    display: flex;
+    border: 1px solid #c2bfc4;
+    border-radius: 20px;
+    padding: 5px 10px;
+    justify-content: center;
+    align-items: center;
+    background-color: #c2bfc4;
+
+    input {
+        width: 200px;
+        border: none;
+        background-color: transparent;
+
+        &:focus {
+            border: none;
+            outline: none;
+        }
+    }
+}
+
+.links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+    a {
+        color: #000;
+        text-decoration: none;
+        font-size: 15px;
+    }
+
+    .seller {
+        background-color: #820cc6;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 15px;
+
+        &:hover {
+            background-color: #47066d;
+        }
+    }
+}
