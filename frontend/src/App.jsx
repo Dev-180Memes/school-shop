@@ -3,8 +3,10 @@ import {
   Home,
   Seller,
   SellerSignUp,
+  Products,
+  SellerLogin
 } from './pages';
-import { Navbar } from './components';
+import { Navbar, Footer } from './components';
 
 const App = () => {
   return (
@@ -15,7 +17,10 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/seller" element={<Seller />} />
           <Route path="/seller/signup" element={<SellerSignUp />} />
+          <Route path="/products" element={<Products />} />
+          <Route path='/seller/login' element={<SellerLogin />} />
         </Routes>
+        <Footer />
       </Router>
     </>
   )

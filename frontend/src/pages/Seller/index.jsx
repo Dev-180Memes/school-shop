@@ -20,6 +20,8 @@ const Seller = () => {
       } else {
         setSellerId(decodedToken.id)
       }
+    } else {
+      navigate('/seller/login')
     }
 
     // Fetch Seller Products
@@ -35,7 +37,7 @@ const Seller = () => {
 
   // console.log(sellerId)
 
-  const handleProductUpload = async(e) => {
+  const handleProductUpload = async (e) => {
     e.preventDefault()
     const name = document.getElementById('name').value
     const price = document.getElementById('price').value
@@ -102,6 +104,40 @@ const Seller = () => {
     });
   }
 
+  const handleChangePassword = async (e) => {
+    e.preventDefault()
+    const oldPassword = document.getElementById('old_password').value
+    const newPassword = document.getElementById('new_password').value
+    const confirmPassword = document.getElementById('confirm_password').value
+
+    if (newPassword !== confirmPassword) {
+      toast.error('Passwords do not match')
+      return
+    }
+
+    fetch(`http://localhost:8000/seller/${sellerId}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        oldPassword,
+        newPassword
+      })
+    })
+    .then(response => response.json())
+    .then(result => {
+      // console.log('Success:', result);
+      document.getElementById('old_password').value = ''
+      document.getElementById('new_password').value = ''
+      document.getElementById('confirm_password').value = ''
+      toast.success(result.message)
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+  }
+
   return (
     <>
       <Toaster
@@ -158,6 +194,26 @@ const Seller = () => {
             </div>
           ))}
         </div>
+      </div>
+
+      {/* Change Seller Password */}
+      <div className={classes.change_password}>
+        <h1>Change Password</h1>
+        <form className={classes.change_password_form} onSubmit={handleChangePassword}>
+          <div className={classes.form_group}>
+            <label htmlFor="old_password">Old Password</label>
+            <input type="password" id="old_password" />
+          </div>
+          <div className={classes.form_group}>
+            <label htmlFor="new_password">New Password</label>
+            <input type="password" id="new_password" />
+          </div>
+          <div className={classes.form_group}>
+            <label htmlFor="confirm_password">Confirm Password</label>
+            <input type="password" id="confirm_password" />
+          </div>
+          <button type="submit">Change Password</button>
+        </form>
       </div>
     </>
   )

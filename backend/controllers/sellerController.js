@@ -32,7 +32,7 @@ export const sellerSignIn = async (req, res) => {
             return res.status(400).json({ message: "Invalid credentials!" });
         }
         const token = jwt.sign({ email: existingSeller.email, id: existingSeller._id }, JWT_SECRET, { expiresIn: "24h" });
-        res.status(200).json({ result: existingSeller, token });
+        res.status(200).json({ token });
     } catch (error) {
         res.status(500).json({ message: "Something went wrong!" });
     }
@@ -60,16 +60,6 @@ export const changeSellerPassword = async (req, res) => {
         const hashedNewPassword = await bcrypt.hash(newPassword, 12);
         await Seller.findByIdAndUpdate(id, { password: hashedNewPassword });
         res.status(200).json({ message: "Password changed successfully!" });
-    } catch (error) {
-        res.status(500).json({ message: "Something went wrong!" });
-    }
-}
-
-export const deleteSeller = async (req, res) => {
-    const { id } = req.params;
-    try {
-        await Seller.findByIdAndRemove(id);
-        res.status(200).json({ message: "Seller deleted successfully!" });
     } catch (error) {
         res.status(500).json({ message: "Something went wrong!" });
     }

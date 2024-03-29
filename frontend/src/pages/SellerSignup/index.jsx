@@ -1,10 +1,23 @@
 import classes from "./index.module.scss"
 import { Link, useNavigate } from "react-router-dom"
 import { toast, Toaster } from 'react-hot-toast';
-// import axios from "axios"
+import { useEffect } from "react";
+import { decodeJWT } from "../../utils/decodeToken";
 
 const SellerSignUp = () => {
   const navigate = useNavigate()
+
+  useEffect(() => {
+    const token = localStorage.getItem("token")
+    if (token) {
+      const decodedToken = decodeJWT(token)
+      if (decodedToken.exp * 1000 < new Date().getTime()) {
+        localStorage.removeItem("token")
+      } else {
+        navigate("/seller")
+      }
+    }
+  }, [navigate])
 
   const handleSellerSignUp = async (e) => {
     e.preventDefault()
