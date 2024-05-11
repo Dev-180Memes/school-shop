@@ -36,7 +36,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div ref={navbarRef} className={location.pathname === "/" ? `app__navbar ${isFixed ? 'fixed' : ''}` : location.pathname === "/products" ? "app__navbar white_nav" : "app__navbar"} >
+      <div ref={navbarRef} className={location.pathname === "/" ? `app__navbar ${isFixed ? 'fixed' : ''}` : location.pathname !== "/" ? "app__navbar white_nav" : "app__navbar"} >
         <img src="/logo.png" alt="logo" />
         <ul>
           <li>
@@ -51,7 +51,7 @@ const Navbar = () => {
         </ul>
       </div>
 
-      <div ref={navbarRef} className={location.pathname === "/" ? `app__navbar-responsive ${isFixed ? 'fixed-responsive' : ''}` : location.pathname === "/products" ? "app__navbar-responsive white_nav" : "app__navbar-responsive"}>
+      <div ref={navbarRef} className={location.pathname === "/" ? `app__navbar-responsive ${isFixed ? 'fixed-responsive' : ''}` : location.pathname !== "/" ? "app__navbar-responsive white_nav" : "app__navbar-responsive"}>
         <img src="/logo.png" alt="logo" />
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}

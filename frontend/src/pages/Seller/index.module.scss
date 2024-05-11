@@ -1,6 +1,11 @@
 .seller {
     min-height: 90vh;
     padding: 0 80px;
+    padding-top: 40px;
+
+    @media screen and (max-width: 430px) {
+        padding: 20px;
+    }
 }
 
 .product_upload {
@@ -10,19 +15,19 @@
     margin-top: 20px;
     width: 50%;
 
+    @media screen and (max-width: 430px) {
+        width: 100%;
+    }
+
     button {
         padding: 10px;
         border: none;
         border-radius: 5px;
         font-size: 1rem;
         font-weight: 500;
-        background-color: #820cc6;
+        background-color: #0191fe;
         color: #fff;
         cursor: pointer;
-
-        &:hover {
-            background-color: #47066d;
-        }
     }
 }
 
@@ -60,6 +65,10 @@
     padding: 20px 80px;
     margin-top: 20px;
 
+    @media screen and (max-width: 430px) {
+        padding: 20px;
+    }
+
     h1 {
         font-size: 2rem;
         font-weight: 600;
@@ -81,6 +90,10 @@
     padding: 20px;
     border-radius: 10px;
     width: 30%;
+
+    @media screen and (max-width: 430px) {
+        width: 100%;
+    }
 
     img {
         width: 100%;
@@ -113,13 +126,9 @@
         border-radius: 5px;
         font-size: 1rem;
         font-weight: 500;
-        background-color: #820cc6;
+        background-color: #0191fe;
         color: #fff;
         cursor: pointer;
-
-        &:hover {
-            background-color: #47066d;
-        }
     }
 }
 
@@ -130,6 +139,11 @@
     margin-top: 20px;
     width: 50%;
     padding: 0 80px;
+
+    @media screen and (max-width: 430px) {
+        width: 100%;
+        padding: 20px;
+    }
 
     h1 {
         font-size: 2rem;
@@ -166,12 +180,8 @@
         border-radius: 5px;
         font-size: 1rem;
         font-weight: 500;
-        background-color: #820cc6;
+        background-color: #0191fe;
         color: #fff;
         cursor: pointer;
-
-        &:hover {
-            background-color: #47066d;
-        }
     }
 }

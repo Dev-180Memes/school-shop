@@ -1,7 +1,5 @@
+import "./index.scss";
 import { useState, useEffect } from 'react';
-
-import classes from './index.module.scss';
-// import { Link } from 'react-router-dom';
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -17,21 +15,23 @@ const Products = () => {
     });
   }, [])
 
-  console.log(products);
+  // console.log(products);
 
   return (
-    <div className={classes.products}>
+    <div className="app__products">
       <h1>Products</h1>
-      <div className={classes.products__container}>
+      <div className="app__products-list">
         {products.map(product => (
-          <div key={product._id} className={classes.product}>
+          <div key={product._id} className="app__products-product">
             <img src={product.imageUrl} alt={product.name} />
-            <h3>{product.name}</h3>
-            <p>Category: {product.category}</p>
-            <p>{product.description}</p>
-            <p>Price: #{product.price}</p>
-            {/* Add a button that links to sellers whatsapp */}
-            <a href={`https://wa.me/${product.seller.phoneNo}?text=I'm intrested in buying your ${product.name} which is listed on SchoolShop`}>Contact Seller</a>
+            <div className="info">
+              <h3>{product.name}</h3>
+              <p>Category: {product.category}</p>
+              <p>{product.description}</p>
+              <p>Price: #{product.price}</p>
+              {/* Add a button that links to sellers whatsapp */}
+              <a href={`https://wa.me/${product.seller.phoneNo}?text=I'm intrested in buying your ${product.name} which is listed on SchoolShop`}>Contact Seller</a>
+            </div>
           </div>
         ))}
       </div>

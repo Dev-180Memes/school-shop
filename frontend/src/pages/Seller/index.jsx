@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useEffect, useState } from 'react'
 import classes from './index.module.scss'
 import { toast, Toaster } from 'react-hot-toast'

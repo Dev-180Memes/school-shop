@@ -81,7 +81,7 @@ const SellerSignUp = () => {
         </div>
         <button type="submit">Create Account</button>
         <p>
-          Already have seller account{" "}
+          Already have seller account?{" "}
           <Link to="/seller/login">Login</Link>
         </p>
       </form>
