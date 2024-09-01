@@ -36,7 +36,7 @@ const Seller = () => {
     });
   }, [navigate, sellerId])
 
-  // console.log(sellerId)
+  console.log(sellerId)
 
   const handleProductUpload = async (e) => {
     e.preventDefault()
@@ -139,6 +139,11 @@ const Seller = () => {
     });
   }
 
+  const handleLogout = () => {
+    localStorage.removeItem('token')
+    navigate('/seller/login')
+  }
+
   return (
     <>
       <Toaster
@@ -168,6 +173,11 @@ const Seller = () => {
               <option value="electronics">Electronics</option>
               <option value="clothing">Clothing</option>
               <option value="accessories">Accessories</option>
+              <option value="healthandbeauty">Health & Beauty</option>
+              <option value="books">Books</option>
+              <option value="sports">Sports</option>
+              <option value="food">Food</option>
+              <option value="computing">Computing</option>
             </select>
           </div>
           <div className={classes.form_group}>
@@ -215,6 +225,10 @@ const Seller = () => {
           </div>
           <button type="submit">Change Password</button>
         </form>
+      </div>
+
+      <div className={classes.logout}>
+        <button onClick={handleLogout}>Logout</button>
       </div>
     </>
   )
